@@ -39,6 +39,7 @@ See documentation for a full list of supported platforms (yours is likely one of
                  'Intended Audience :: System Administrators',
                  'License :: OSI Approved :: BSD License',
                  'Operating System :: MacOS :: MacOS X',
+                 'Operating System :: POSIX :: BSD',
                  'Operating System :: POSIX :: Linux',
                  'Programming Language :: Python',
                  'Programming Language :: Python :: 2',

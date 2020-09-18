@@ -32,12 +32,6 @@ except ImportError:
     datetime = None
 
 try:
-    # RISC OS only.
-    import swi
-except ImportError:
-    pass
-
-try:
     # Mac OS, Python <3 only.
     import MacOS
 except ImportError:
@@ -163,6 +157,8 @@ def _uptime_mac():
     except NameError:
         return None
 
+_uptime_osx = _uptime_bsd
+
 def uptime():
     """Returns uptime in seconds if even remotely possible, or None if not."""
     if __boottime is not None:
@@ -174,7 +170,7 @@ def uptime():
             'mac': _uptime_mac}.get(sys.platform, _uptime_bsd)() or \
            _uptime_bsd() or _uptime_linux() or \
            _uptime_posix() or _uptime_mac() or _uptime_osx()
-           
+
 def boottime():
     """Returns boot time if remotely possible, or None if not."""
     global __boottime
